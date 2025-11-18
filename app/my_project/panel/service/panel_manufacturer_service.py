@@ -1,4 +1,3 @@
-# app/my_project/panel/service/panel_manufacturer_service.py
 from app.my_project.panel.dao import panel_manufacturer_dao
 
 class PanelManufacturerService:

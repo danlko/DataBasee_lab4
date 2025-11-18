@@ -1,4 +1,3 @@
-# app/my_project/supermarket/service/department_service.py
 from app.my_project.supermarket.dao import department_dao
 
 class DepartmentService:

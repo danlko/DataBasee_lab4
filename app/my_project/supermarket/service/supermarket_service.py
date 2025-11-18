@@ -1,4 +1,3 @@
-# app/my_project/supermarket/service/supermarket_service.py
 from app.my_project.supermarket.dao import supermarket_dao
 
 
@@ -22,9 +21,8 @@ class SupermarketService:
     def delete_supermarket(self, supermarket_id):
         return supermarket_dao.delete(supermarket_id)
 
-    # --- Специфічний запит для M:1 (Вимога Лабораторної) ---
     def get_departments_for_supermarket(self, supermarket_id):
         departments = supermarket_dao.get_departments_for_supermarket(supermarket_id)
         if departments is not None:
             return [d.to_dict() for d in departments]
-        return None  # Повернемо None, якщо супермаркет не знайдено
+        return None

@@ -1,4 +1,3 @@
-# app/my_project/supermarket/dao/department_dao.py
 from app.my_project import db
 from app.my_project.supermarket.domain.models import Department
 

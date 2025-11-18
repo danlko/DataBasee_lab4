@@ -1,4 +1,3 @@
-# app/my_project/panel/dao/panel_manufacturer_dao.py
 from app.my_project import db
 from app.my_project.panel.domain.models import PanelManufacturer
 

@@ -1,4 +1,3 @@
-# app/my_project/video/dao/brand_dao.py
 from app.my_project import db
 from app.my_project.video.domain.models import Brand
 

@@ -1,4 +1,3 @@
-# app/my_project/video/route/brand_route.py
 from flask import Blueprint, jsonify, request, abort
 from app.my_project.video.service import brand_service
 

@@ -1,4 +1,3 @@
-# app/my_project/panel/service/panel_spec_service.py
 from app.my_project.panel.dao import panel_spec_dao
 
 class PanelSpecService:

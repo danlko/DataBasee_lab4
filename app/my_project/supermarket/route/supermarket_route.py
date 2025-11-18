@@ -1,4 +1,3 @@
-# app/my_project/supermarket/route/supermarket_route.py
 from flask import Blueprint, jsonify, request, abort
 from app.my_project.supermarket.service import supermarket_service
 
@@ -47,17 +46,10 @@ def delete_supermarket(supermarket_id):
     return jsonify(message="Supermarket deleted successfully"), 200
 
 
-# --- РОУТ ДЛЯ M:1 (Вимога Лабораторної) ---
 @supermarket_bp.route('/<int:supermarket_id>/departments', methods=['GET'])
 def get_departments_for_supermarket(supermarket_id):
-    """
-    GET /supermarkets/<id>/departments
-    Отримує всі відділи для конкретного супермаркету.
-    """
     departments = supermarket_service.get_departments_for_supermarket(supermarket_id)
     if departments is None:
-        # Це означає, що сам супермаркет не знайдено
         return abort(404, description="Supermarket not found")
 
-    # Повертаємо список відділів (може бути порожнім)
     return jsonify(departments), 200

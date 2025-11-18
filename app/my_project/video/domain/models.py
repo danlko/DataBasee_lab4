@@ -1,4 +1,3 @@
-# app/my_project/video/domain/models.py
 from app.my_project import db
 
 class Brand(db.Model):
@@ -6,7 +5,6 @@ class Brand(db.Model):
     id = db.Column(db.BigInteger, primary_key=True, autoincrement=True)
     name = db.Column(db.String(50), nullable=False)
 
-    # Зв'язок (One-to-Many до Video)
     videos = db.relationship('Video', back_populates='brand')
 
     def to_dict(self):
@@ -33,17 +31,12 @@ class Video(db.Model):
     duration = db.Column(db.Integer, nullable=False)
     format = db.Column(db.String(50), nullable=False)
 
-    # Foreign Keys
     brand_id = db.Column(db.BigInteger, db.ForeignKey('brand.id'), nullable=False)
     producer_id = db.Column(db.BigInteger, db.ForeignKey('video_producer.id'), nullable=False)
 
-    # Зв'язки (Many-to-One)
     brand = db.relationship('Brand', back_populates='videos')
     video_producer = db.relationship('VideoProducer', back_populates='videos')
 
-    # Зв'язок (Many-to-Many до Panel)
-    # 'panels' - це список об'єктів Panel, пов'язаних з цим Video
-    # 'secondary' вказує на нашу асоціативну таблицю
     panels = db.relationship('Panel', secondary='video_panel', back_populates='videos')
 
     def to_dict(self):

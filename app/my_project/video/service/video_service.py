@@ -1,4 +1,3 @@
-# app/my_project/video/service/video_service.py
 from app.my_project.video.dao import video_dao
 
 class VideoService:

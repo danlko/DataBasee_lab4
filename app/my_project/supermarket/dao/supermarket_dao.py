@@ -1,4 +1,3 @@
-# app/my_project/supermarket/dao/supermarket_dao.py
 from app.my_project import db
 from app.my_project.supermarket.domain.models import Supermarket, Department
 
@@ -32,13 +31,8 @@ class SupermarketDAO:
             return True
         return False
 
-    # --- Специфічний запит для M:1 (Вимога Лабораторної) ---
     def get_departments_for_supermarket(self, supermarket_id):
-        """
-        Для кожного супермаркету вивести всі його відділи.
-        """
         supermarket = self.get_by_id(supermarket_id)
         if supermarket:
-            # Завдяки db.relationship, ми можемо просто звернутись до .departments
             return supermarket.departments
         return None

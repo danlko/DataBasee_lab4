@@ -1,4 +1,3 @@
-# app/my_project/video/service/__init__.py
 from .brand_service import BrandService
 from .video_producer_service import VideoProducerService
 from .video_service import VideoService

@@ -1,4 +1,3 @@
-# app/my_project/video/service/brand_service.py
 from app.my_project.video.dao import brand_dao
 
 class BrandService:

@@ -1,4 +1,3 @@
-# app/my_project/panel/route/panel_route.py
 from flask import Blueprint, jsonify, request, abort
 from app.my_project.panel.service import panel_service
 
@@ -39,14 +38,9 @@ def delete_panel(panel_id):
         return abort(404, description="Panel not found")
     return jsonify(message="Panel deleted successfully"), 200
 
-# --- РОУТИ ДЛЯ M:M (Вимога Лабораторної) ---
-
 @panel_bp.route('/<int:panel_id>/videos', methods=['GET'])
 def get_videos_for_panel(panel_id):
-    """
-    GET /panels/<id>/videos
-    Отримує всі відео, що транслюються на цій панелі.
-    """
+
     videos = panel_service.get_videos_for_panel(panel_id)
     if videos is None:
         return abort(404, description="Panel not found")
@@ -54,10 +48,6 @@ def get_videos_for_panel(panel_id):
 
 @panel_bp.route('/<int:panel_id>/videos/<int:video_id>', methods=['POST'])
 def add_video_to_panel(panel_id, video_id):
-    """
-    POST /panels/<panel_id>/videos/<video_id>
-    Створює зв'язок M:M між панеллю та відео.
-    """
     panel = panel_service.add_video_to_panel(panel_id, video_id)
     if not panel:
         return abort(404, description="Panel or Video not found")
@@ -65,10 +55,6 @@ def add_video_to_panel(panel_id, video_id):
 
 @panel_bp.route('/<int:panel_id>/videos/<int:video_id>', methods=['DELETE'])
 def remove_video_from_panel(panel_id, video_id):
-    """
-    DELETE /panels/<panel_id>/videos/<video_id>
-    Видаляє зв'язок M:M.
-    """
     if not panel_service.remove_video_from_panel(panel_id, video_id):
         return abort(404, description="Link not found or Panel/Video not found")
     return jsonify(message="Video removed from panel"), 200

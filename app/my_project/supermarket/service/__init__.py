@@ -1,4 +1,3 @@
-# app/my_project/supermarket/service/__init__.py
 from .retail_network_service import RetailNetworkService
 from .supermarket_service import SupermarketService
 from .department_service import DepartmentService

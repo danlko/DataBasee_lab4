@@ -1,4 +1,3 @@
-# app/my_project/video/route/video_route.py
 from flask import Blueprint, jsonify, request, abort
 from app.my_project.video.service import video_service
 

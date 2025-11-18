@@ -1,4 +1,3 @@
-# app/my_project/panel/route/panel_manufacturer_route.py
 from flask import Blueprint, jsonify, request, abort
 from app.my_project.panel.service import panel_manufacturer_service
 

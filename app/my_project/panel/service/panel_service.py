@@ -1,4 +1,3 @@
-# app/my_project/panel/service/panel_service.py
 from app.my_project.panel.dao import panel_dao
 
 class PanelService:
@@ -20,12 +19,11 @@ class PanelService:
     def delete_panel(self, panel_id):
         return panel_dao.delete(panel_id)
 
-    # --- Специфічні запити для M:M (Вимога Лабораторної) ---
     def get_videos_for_panel(self, panel_id):
         videos = panel_dao.get_videos_for_panel(panel_id)
         if videos is not None:
             return [v.to_dict() for v in videos]
-        return None # Якщо панель не знайдено
+        return None
 
     def add_video_to_panel(self, panel_id, video_id):
         panel = panel_dao.add_video_to_panel(panel_id, video_id)
