@@ -15,6 +15,8 @@ from app.my_project.panel.route.panel_manufacturer_route import panel_manufactur
 from app.my_project.panel.route.panel_spec_route import panel_spec_bp
 from app.my_project.panel.route.panel_route import panel_bp
 
+from app.my_project.main_route import main_bp
+
 
 def create_app():
     app = Flask(__name__)
@@ -58,6 +60,7 @@ def create_app():
     for rule in app.url_map.iter_rules():
         print(f"- {rule.endpoint} -> {rule.rule}")
 
+    app.register_blueprint(main_bp, url_prefix=f'{api_prefix}/main')
     return app
 
 

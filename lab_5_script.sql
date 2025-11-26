@@ -1,0 +1,1 @@
+SELECT * FROM video_audit_log;

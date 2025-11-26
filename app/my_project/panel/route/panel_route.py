@@ -3,7 +3,14 @@ from app.my_project.panel.service import panel_service
 
 panel_bp = Blueprint('panel_bp', __name__, url_prefix='/panels')
 
-# --- CRUD для Панелей ---
+@panel_bp.route('/videos', methods=['GET'])
+def get_all_connections():
+    """
+    GET /api/panels/videos
+    Виводить усі існуючі зв'язки між панелями та відео.
+    """
+    return jsonify(panel_service.get_all_connections()), 200
+
 @panel_bp.route('/', methods=['GET'])
 def get_all_panels():
     return jsonify(panel_service.get_all_panels()), 200
